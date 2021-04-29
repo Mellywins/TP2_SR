@@ -4,9 +4,9 @@ import java.sql.*;
 import java.util.List;
 
 public class DBInsertService {
-    public String url = "jdbc:mysql://localhost:3306/ho";
-    public String user="root";
-    public String password = "";
+    public String url = "jdbc:mysql://localhost:3308/TP2";
+    public String user="oussema";
+    public String password = "root";
     public String query = "INSERT INTO product_sale(date, region, product, qty, cost, amt, tax, total) values(?,?,?,?,?,?,?,?)";
 
     public void insert(List<Product> productList) throws SQLException {

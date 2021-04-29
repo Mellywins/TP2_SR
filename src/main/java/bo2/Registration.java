@@ -54,9 +54,7 @@ class MyFrame
     private final JComboBox month;
     private final JComboBox year;
 
-    private final JCheckBox term;
     private final JButton sub;
-    private final JButton reset;
     private final JTextArea tout;
     private  JLabel res;
 
@@ -90,8 +88,8 @@ class MyFrame
     public MyFrame() throws SQLException {
 
 
-        setTitle("BO2 Registration Form");
-        setBounds(600, 90, 1000, 700);
+        setTitle("DB INPUT 2");
+        jt.setBounds(0, 20, 600, 800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 //        setResizable(false);
 
@@ -148,10 +146,9 @@ class MyFrame
         c.add(jt, BorderLayout.CENTER);
 
 
-
-        title = new JLabel("Registration Form");
+        title = new JLabel("Add a new product");
         title.setFont(new Font("Arial", Font.PLAIN, 30));
-        title.setSize(300, 30);
+        title.setSize(250, 25);
         title.setLocation(600, 30);
         c.add(title);
 
@@ -266,11 +263,6 @@ class MyFrame
         c.add(ttotal);
 
 
-        term = new JCheckBox("Accept Terms And Conditions.");
-        term.setFont(new Font("Arial", Font.PLAIN, 15));
-        term.setSize(250, 20);
-        term.setLocation(600, 500);
-        c.add(term);
 
         resp = new JLabel("");
         resp.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -285,12 +277,6 @@ class MyFrame
         sub.addActionListener(this);
         c.add(sub);
 
-        reset = new JButton("Reset");
-        reset.setFont(new Font("Arial", Font.PLAIN, 15));
-        reset.setSize(100, 20);
-        reset.setLocation(770, 550);
-        reset.addActionListener(this);
-        c.add(reset);
 
 
         res = new JLabel("");
@@ -325,7 +311,7 @@ class MyFrame
     @SneakyThrows
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sub) {
-            if (term.isSelected()) {
+            if (true) {
                 String data1;
                 String data
                         = "Name : "
@@ -359,7 +345,11 @@ class MyFrame
                 System.out.println(p);
                 int p_id = productList.get(productList.size()-1).getId() +1;
                 dbInsertService = new DBInsert();
-                dbInsertService.insert(p);
+                try {
+                    dbInsertService.insert(p);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
 
                 resp.setText("Registration Successfully Completed ..");
 
@@ -402,23 +392,9 @@ class MyFrame
                 resadd.setText("");
                 resp.setText("Please accept the" + " terms & conditions..");
             }
-        } else if (e.getSource() == reset) {
-            String def = "";
-            tname.setText(def);
-            treg.setText(def);
-            tqty.setText(def);
-            tcost.setText(def);
-            tamt.setText(def);
-            ttax.setText(def);
-            ttotal.setText(def);
-            resp.setText(def);
-            tout.setText(def);
-            term.setSelected(false);
-            date.setSelectedIndex(0);
-            month.setSelectedIndex(0);
-            year.setSelectedIndex(0);
-            resadd.setText(def);
         }
+
+
     }
 }
 

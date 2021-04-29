@@ -6,9 +6,9 @@ import java.util.List;
 
 public class DBRetrieve {
 
-    public String url = "jdbc:mysql://localhost:3306/bo1";
-    public String user="root";
-    public String password = "";
+    public String url = "jdbc:mysql://localhost:3308/TP2";
+    public String user="oussema";
+    public String password = "root";
     public String query = "SELECT * FROM product_sale where sent=0";
     public List<Product> retreive() throws SQLException{
         List<Product> res = new ArrayList<>();

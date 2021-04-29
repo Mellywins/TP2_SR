@@ -41,7 +41,7 @@ public class Bo2 extends TimerTask {
 
         try(Connection connection = connectionFactory.newConnection()) {
             Channel channel = connection.createChannel();
-            channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+            channel.queueDeclare(QUEUE_NAME,true,false,false,null);
 
             channel.basicPublish("",QUEUE_NAME,null, message.getBytes());
             System.out.println(" [x] sent '"+message+" '");
@@ -58,7 +58,13 @@ public class Bo2 extends TimerTask {
     @SneakyThrows
     @Override
     public void run() {
-        Bo2 bo2 = new Bo2();
+        try {
+            Bo2 bo2 = new Bo2();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
         System.out.println("BO is updated");
     }
 

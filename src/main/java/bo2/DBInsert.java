@@ -3,9 +3,9 @@ package bo2;
 import java.sql.*;
 
 public class DBInsert {
-    public String url = "jdbc:mysql://localhost:3306/bo2";
-    public String user="root";
-    public String password = "";
+    public String url = "jdbc:mysql://localhost:3308/TP2";
+    public String user="oussema";
+    public String password = "root";
     public String query = "INSERT INTO product_sale(date, region, product, qty, cost, amt, tax, total ,sent) values(?,?,?,?,?,?,?,?,0)";
 
     public void insert(Product p) throws SQLException {
