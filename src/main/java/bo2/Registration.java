@@ -89,7 +89,7 @@ class MyFrame
 
 
         setTitle("DB INPUT 2");
-        jt.setBounds(0, 20, 600, 800);
+        setBounds(0, 20, 600, 800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 //        setResizable(false);
 
@@ -351,7 +351,7 @@ class MyFrame
                     throwables.printStackTrace();
                 }
 
-                resp.setText("Registration Successfully Completed ..");
+                resp.setText("Product added!");
 
                 String[] rowData = {
                         "" + p.getId() + "" ,

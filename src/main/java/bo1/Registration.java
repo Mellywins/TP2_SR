@@ -359,7 +359,7 @@ class MyFrame
                     throwables.printStackTrace();
                 }
 
-                resp.setText("Registration Successfully Completed ..");
+                resp.setText("Product added!");
 
                 String[] rowData = {
                         "" + p.getId() + "" ,

@@ -44,7 +44,7 @@ public class Bo2 extends TimerTask {
             channel.queueDeclare(QUEUE_NAME,true,false,false,null);
 
             channel.basicPublish("",QUEUE_NAME,null, message.getBytes());
-            System.out.println(" [x] sent '"+message+" '");
+            System.out.println(" Bo2 sent '"+message+" '");
 
             dbUpdateService.update(productList);
 
@@ -65,7 +65,6 @@ public class Bo2 extends TimerTask {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        System.out.println("BO is updated");
     }
 
     public static String serialize(List<Product> productList) throws JsonProcessingException {
